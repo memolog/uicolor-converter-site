@@ -1,0 +1,45 @@
+{
+  "name": "uicolor-converter",
+  "version": "0.1.0",
+  "description": "A website to convert HTML color code into Swift UIColor",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/memolog/uicolor-converter-site.git"
+  },
+  "scripts": {
+    "postinstall": "npm run copy",
+    "copy": "cp ./node_modules/angular2/bundles/angular2-polyfills.js public/",
+    "sass": "node-sass src/scss --output src/css",
+    "cleancss": "cleancss src/css/app.css --output public/app.css",
+    "buildCSS": "npm run sass && npm run cleancss",
+    "buildJS": "npm run tsc && npm run babel && npm run webpack && npm run uglifyjs",
+    "dev": "lite-server -c ./lite-server.config.js",
+    "tsc": "tsc",
+    "babel": "babel ./src/es6 --out-dir ./src/es2015-webpack",
+    "webpack": "webpack",
+    "uglifyjs": "find src/bundle -name '*.js' | xargs uglifyjs --compress --output ./public/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yutaka Yamaguchi",
+  "license": "MIT",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.14",
+    "bootstrap": "^4.0.0-alpha.2",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "webpack": "^1.12.14",
+    "zone.js": "^0.6.10"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.7.5",
+    "babel-preset-es2015-webpack": "^6.4.0",
+    "clean-css": "^3.4.11",
+    "lite-server": "^2.2.0",
+    "node-sass": "^3.4.2",
+    "typescript": "^1.8.9",
+    "typings": "^0.7.12",
+    "uglify-js": "^2.6.2",
+    "webpack": "^2.1.0-beta.4"
+  }
+}

@@ -1,0 +1,20 @@
+@import "bootstrap";
+
+$max-width: 500px;
+
+body {
+  background: white;
+  color: #444;
+}
+
+.main-header {
+  max-width: $max-width;
+  margin: 3em auto 1em;
+  text-align: center;
+}
+
+.main {
+  max-width: $max-width;
+  margin: 3em auto 3em;
+  text-align: center;
+}

@@ -1,0 +1,7 @@
+.DS_Store
+node_modules
+public/angular2-polyfills.js
+src/es6
+src/es2015-webpack
+src/css
+src/bundle
