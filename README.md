@@ -1,7 +1,7 @@
-# MEAN-EDGE
-This is my personal sandbox to use cutting-edge features around MEAN (actually possibly included non-MEAN stack)
+# UIColor converter site
+Creating a static web site to convert HTML color code into swift UIColor
 
-### Install MEAN-EDGE
+### Install the site
 ```
 git clone https://github.com/memolog/uicolor-converter-site.git
 cd uicolor-converter-site
