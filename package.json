@@ -4,13 +4,14 @@
   "description": "A website to convert HTML color code into Swift UIColor",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/memolog/uicolor-converter-site.git"
+    "url": "git+https://github.com/memolog/uicolor-converter-site.git"
   },
   "scripts": {
     "postinstall": "npm run copy",
     "copy": "cp ./node_modules/angular2/bundles/angular2-polyfills.js public/",
     "sass": "node-sass src/scss --output src/css",
     "cleancss": "cleancss src/css/app.css --output public/app.css",
+    "build": "npm run buildCSS && npm run buildJS",
     "buildCSS": "npm run sass && npm run cleancss",
     "buildJS": "npm run tsc && npm run babel && npm run webpack && npm run uglifyjs",
     "dev": "lite-server -c ./lite-server.config.js",
