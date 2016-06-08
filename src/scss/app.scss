@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-$max-width: 500px;
+$max-width: 600px;
 
 body {
   background: white;
@@ -17,4 +17,10 @@ body {
   max-width: $max-width;
   margin: 3em auto 3em;
   text-align: center;
+}
+
+.color-sample {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
 }

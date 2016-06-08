@@ -11,6 +11,7 @@
   },
   "files": [
     "./src/ts/app.ts",
-    "./src/ts/boot.ts"
+    "./src/ts/boot.ts",
+    "./typings/index.d.ts"
   ]
 }
