@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, ChangeDetectionStrategy, ChangeDetectorRef} from 'angular2/core';
 
 export class Hero {
   id: number;
@@ -7,6 +7,7 @@ export class Hero {
 
 @Component({
   selector: 'my-app',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template:`
       <form #f="ngForm"
         (ngSubmit)="onSubmit(f.value)">
@@ -38,12 +39,15 @@ export class Hero {
           </span>
         </div>
       </form>
-      <div *ngIf="output" class="output"><span class="color-sample" [ngStyle]="{'background-color': bgColor}"></span><pre class="language-swift"><code class="language-swift">{{output}}</code></pre></div>
+      <div [hidden]="!output" class="output"><span class="color-sample" [ngStyle]="{'background-color': bgColor}"></span><pre class="language-swift"><code class="language-swift" id="output"></code></pre></div>
     `
 })
 export class AppComponent {
   output: string
   bgColor: string
+  constructor(private ref: ChangeDetectorRef){
+
+  }
   onSubmit(form: any): void {
     let input = form['html-color-code'];
     input = input.replace(/^#/, '');
@@ -62,6 +66,8 @@ export class AppComponent {
     }
     this.bgColor = `#${hex.join('')}`
     this.output = `UIColor(red:${ret[0]}, green:${ret[1]}, blue:${ret[2]}, alpha:1.0) // #${hex.join('')}`
+    document.getElementById('output').textContent = this.output
+    this.ref.markForCheck()
     setTimeout(()=>{
       Prism.highlightAll(false)
     }, 10)
@@ -78,11 +84,17 @@ export class AppComponent {
         throw new Error('Invalid Color');
       }
       let hexCode = decimalCode.toString(16)
+      if (hexCode.length == 1) {
+        hexCode = '0' + hexCode
+      }
       let swiftCode = Math.round((decimalCode / 255) * 100) / 100;
       hex.push(hexCode);
       ret.push(swiftCode);
     }
+    this.bgColor = `#${hex.join('')}`
     this.output = `UIColor(red:${ret[0]}, green:${ret[1]}, blue:${ret[2]}, alpha:1.0) // #${hex.join('')}`
+    document.getElementById('output').textContent = this.output
+    this.ref.markForCheck()
     setTimeout(()=>{
       Prism.highlightAll(false)
     }, 10)
