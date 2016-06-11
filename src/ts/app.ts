@@ -81,7 +81,7 @@ export class AppComponent {
         ret.push(swiftCode);
       }
     }
-    let color = this.checkColorNameFromHexString(hex.join(''))
+    let color = this.checkColorNameFromHexString(hex.join('')) || ''
     let desc = `#${hex.join('')} (${decimals.join(',')}) ${color}`
     this.description = desc
     this.bgColor = `#${hex.join('')}`
@@ -113,7 +113,7 @@ export class AppComponent {
       hex.push(hexCode);
       ret.push(swiftCode);
     }
-    let color = this.checkColorNameFromHexString(hex.join(''))
+    let color = this.checkColorNameFromHexString(hex.join('')) || ''
     let desc = `#${hex.join('')} (${decimals.join(',')}) ${color}`
     this.description = desc
     this.bgColor = `#${hex.join('')}`
