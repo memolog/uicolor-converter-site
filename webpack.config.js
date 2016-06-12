@@ -2,6 +2,7 @@ var path = require('path');
 
 module.exports = {
     entry: {
+      'vendor': path.resolve(__dirname, 'src/es2015-webpack/vendor.js'),
       'app': path.resolve(__dirname, 'src/es2015-webpack/boot.js')
     },
     output: {

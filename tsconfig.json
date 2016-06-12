@@ -12,6 +12,7 @@
   "files": [
     "./src/ts/app.ts",
     "./src/ts/boot.ts",
+    "./src/ts/vendor.ts",
     "./typings/index.d.ts"
   ]
 }
