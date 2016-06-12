@@ -44,6 +44,11 @@ module.exports = {
 
     alias: {
         // jquery: path.resolve(__dirname, "vendor/jquery-2.0.0.js")
-    }
+    },
     // These aliasing is used when trying to resolve a module
+    module: {
+      loaders: [
+        { test: /\.json$/, loader: "json" }
+      ]
+    }
 }
