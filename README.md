@@ -1,6 +1,6 @@
 # UIColor converter site
 Creating a static web site to convert HTML color code into swift UIColor
-http://plain-vase.surge.sh/ (DEMO)
+https://uicolor-converter.memolog.org/
 
 ### Install the site
 ```
