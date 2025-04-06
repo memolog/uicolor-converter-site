@@ -1,0 +1,60 @@
+---
+import HtmlColor from "../components/HtmlColor.tsx";
+import RgbColor from "../components/RgbColor.tsx";
+---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>UIColor Converter</title>
+    <link rel="shortcut icon" href="/icon.svg" />
+    <style is:inline>
+      :root {
+        --max-width: 800px;
+      }
+
+      body {
+        background: white;
+        color: #444;
+      }
+
+      .main-header {
+        max-width: var(--max-width);
+        margin: 3em auto 1em;
+        text-align: center;
+      }
+
+      .main {
+        max-width: var(--max-width);
+        margin: 3em auto 3em;
+        text-align: center;
+      }
+
+      .output-container {
+        background: #f0f0f0;
+        padding: 1em;
+        border-radius: 4px;
+        max-width: var(--max-width);
+        margin: 1em auto;
+      }
+
+      .color-sample {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        margin-right: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <h1>UIColor Converter</h1>
+      <p>Convert HTML color code into Swift UIColor</p>
+    </header>
+    <main class="main">
+      <HtmlColor client:load />
+      <RgbColor client:load />
+    </main>
+  </body>
+</html>

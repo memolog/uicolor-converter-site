@@ -1,18 +1,14 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false,
-    "outDir": "./src/es6/"
-  },
-  "files": [
-    "./src/ts/app.ts",
-    "./src/ts/boot.ts",
-    "./src/ts/vendor.ts",
-    "./typings/index.d.ts"
-  ]
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }
