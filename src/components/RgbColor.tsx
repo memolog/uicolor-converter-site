@@ -45,7 +45,7 @@ export default function HtmlColor() {
     const color = checkColorNameFromHexString(hex.join("")) || "";
     const newDesc = `#${hex.join("")} (${decimals.join(",")}) ${color}`;
     const newBgColor = `#${hex.join("")}`;
-    const newOutput = `UIColor(red:${ret[0]}, green:${ret[1]}, blue:${ret[2]}, alpha:1.0) // ${desc}`;
+    const newOutput = `UIColor(red:${ret[0]}, green:${ret[1]}, blue:${ret[2]}, alpha:1.0) // ${newDesc}`;
 
     setBgColor(newBgColor);
     setDesc(newDesc);
@@ -64,14 +64,16 @@ export default function HtmlColor() {
           onInput={handleInput}
         />
       </div>
-      <div className="output-container">
-        <span
-          className="color-sample"
-          style={{ backgroundColor: bgColor }}
-        ></span>
-        <span>{desc}</span>
-        <div>{output}</div>
-      </div>
+      {bgColor && (
+        <div className="output-container">
+          <span
+            className="color-sample"
+            style={{ backgroundColor: bgColor }}
+          ></span>
+          <span>{desc}</span>
+          <div>{output}</div>
+        </div>
+      )}
     </section>
   );
 }

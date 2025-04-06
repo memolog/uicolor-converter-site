@@ -1,6 +1,7 @@
 ---
 import HtmlColor from "../components/HtmlColor.tsx";
 import RgbColor from "../components/RgbColor.tsx";
+import ImageColor from "../components/ImageColor.tsx";
 ---
 
 <html>
@@ -30,11 +31,53 @@ import RgbColor from "../components/RgbColor.tsx";
         text-align: center;
       }
 
+      section {
+        margin: 1em 0;
+        display: grid;
+        grid-template-areas: "label field" "output output";
+        grid-template-columns: 50% 50%;
+        gap: 10px;
+      }
+
+      section.image-to-color {
+        grid-template-areas: "label label field" "preview output output";
+        grid-template-columns: 100px calc(50% - 110px) 50%;
+      }
+
+      section label {
+        justify-self: end;
+        grid-area: label;
+      }
+
+      section .input-group {
+        justify-self: start;
+        grid-area: field;
+      }
+
+      .image-preview {
+        margin: 1em auto;
+        grid-area: preview;
+      }
+
       .output-container {
+        grid-area: output;
         background: #f0f0f0;
         padding: 1em;
         border-radius: 4px;
         max-width: var(--max-width);
+        margin: 1em auto;
+      }
+
+      .image-to-color .output-container {
+        background: white;
+        padding: 0;
+        margin: 0 auto;
+      }
+
+      .image-to-color .color-container {
+        background: #f0f0f0;
+        padding: 1em;
+        border-radius: 4px;
         margin: 1em auto;
       }
 
@@ -55,6 +98,7 @@ import RgbColor from "../components/RgbColor.tsx";
     <main class="main">
       <HtmlColor client:load />
       <RgbColor client:load />
+      <ImageColor client:load />
     </main>
   </body>
 </html>
