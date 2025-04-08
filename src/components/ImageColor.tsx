@@ -37,7 +37,6 @@ export default function ImageColor() {
       let decimals: number[] = [];
       let hex: string[] = [];
       image.forEach((colorCode: any) => {
-        console.log(colorCode);
         let decimalCode = parseInt(colorCode, 10);
         if (
           decimalCode !== decimalCode ||
@@ -86,7 +85,7 @@ export default function ImageColor() {
         <div className="output-container">
           {palette.map(({ desc, bgColor, output }) => {
             return (
-              <div className="color-container">
+              <div className="color-container" key={bgColor}>
                 <span
                   className="color-sample"
                   style={{ backgroundColor: bgColor }}
